@@ -26,9 +26,12 @@ public class miniJava {
 
     public static void main(String[] args) throws IOException {
         ANTLRInputStream inputStream = new ANTLRInputStream(System.in);
+        ErrorListener errorListener = new ErrorListener();
         miniJavaLexer lexer = new miniJavaLexer(inputStream);
+        lexer.addErrorListener(errorListener);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         miniJavaParser parser = new miniJavaParser(tokens);
+        parser.addErrorListener(errorListener);
         ParseTree tree = parser.goal();
         ParseTreeWalker walker = new ParseTreeWalker();
         DefPass def = new DefPass();

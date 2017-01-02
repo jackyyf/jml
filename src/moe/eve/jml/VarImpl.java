@@ -8,7 +8,6 @@ public class VarImpl {
     public String name;
     public int line, pos;
 
-    public VarImpl() {}
     public VarImpl(TypeImpl type, String name) {
         this.type = type;
         this.name = name;

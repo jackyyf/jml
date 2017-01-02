@@ -1,18 +1,15 @@
 package moe.eve.jml;
 
-import java.util.Random;
-
 /**
  * Created by Eve on 1/2/2017.
  */
 public class DefPass extends miniJavaBaseListener {
-    public ProgramImpl program;
+    public String mainClassName;
     public ClassImpl currentClass;
     public MethodImpl currentMethod;
     public String currentDepth;
 
     public void enterGoal(miniJavaParser.GoalContext ctx) {
-        program = new ProgramImpl();
         currentClass = null;
         currentMethod = null;
         currentDepth = "global";
@@ -20,7 +17,7 @@ public class DefPass extends miniJavaBaseListener {
 
     public void enterMainClassDef(miniJavaParser.MainClassDefContext ctx) {
         if (ctx.clsName != null) {
-            program.main_class = ctx.clsName.getText();
+            mainClassName = ctx.clsName.getText();
             currentDepth = "mainClass";
         }
     }

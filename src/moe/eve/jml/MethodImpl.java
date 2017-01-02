@@ -1,6 +1,5 @@
 package moe.eve.jml;
 
-import java.io.*;
 import java.util.*;
 
 /**
@@ -25,27 +24,4 @@ public class MethodImpl {
         this(owner);
         this.name = name;
     }
-
-    public void addVariable(VarImpl t) {
-        variables.put(t.name, t);
-    }
-
-    public void addArgument(VarImpl t) {
-        arguments.add(t);
-    }
-
-    public boolean callable(TypeImpl args[]) throws miniJavaException {
-        if (args.length != arguments.size()) {
-            return false;
-        }
-
-        for (int i = 0; i < args.length; ++ i) {
-            if (!args[i].compatible(arguments.get(i).type)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
 }

@@ -1,6 +1,5 @@
 package moe.eve.jml;
 
-import java.io.*;
 import java.util.*;
 
 /**
@@ -10,7 +9,6 @@ public class TypeImpl {
 
     public String name;
 
-    private TypeImpl() {}
     private TypeImpl(String name) {
         this.name = name;
     }

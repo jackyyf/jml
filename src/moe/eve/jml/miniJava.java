@@ -1,5 +1,6 @@
 package moe.eve.jml;
 
+import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 import org.antlr.v4.gui.*;
@@ -35,7 +36,12 @@ public class miniJava {
         CheckPass check = new CheckPass();
         walker.walk(check, tree);
 
-        if (!hasError)
+        if (!hasError) {
             System.out.println(tree.toStringTree(parser));
+            if (args.length == 0 || !args[0].equals("-nogui")) {
+                Trees.inspect(tree, parser);
+            }
+        }
+
     }
 }

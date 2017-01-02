@@ -30,7 +30,7 @@ method
 	;
 
 parameters
-	:	'(' parameterList ')'
+	:	'(' parameterList? ')'
 	;
 
 parameterList

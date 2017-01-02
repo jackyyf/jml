@@ -17,6 +17,7 @@ public class miniJava {
     public static boolean hasError = false;
 
     public static void error(int line, int pos, String msg) {
+        hasError = true;
         System.err.printf("line %d:%d error: %s%n", line, pos, msg);
     }
 

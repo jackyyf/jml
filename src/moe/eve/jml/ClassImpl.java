@@ -1,5 +1,6 @@
 package moe.eve.jml;
 
+import javax.swing.text.html.MinimalHTMLWriter;
 import java.io.*;
 import java.util.*;
 
@@ -31,6 +32,9 @@ public class ClassImpl {
 	}
 
 	public static ClassImpl get(String name) throws miniJavaException {
+		if (!pool.containsKey(name)) {
+			throw new miniJavaException("Class " + name + " not defined.");
+		}
 		return pool.get(name);
 	}
 

@@ -7,21 +7,21 @@ import java.util.*;
  */
 public class MethodImpl {
 
-    public String name;
-    public ClassImpl owner;
-    public TypeImpl ret;
-    public List<VarImpl> arguments;
-    public HashMap<String, VarImpl> variables;
-    public int line, pos;
+	public String name;
+	public ClassImpl owner;
+	public TypeImpl ret;
+	public List<VarImpl> arguments;
+	public HashMap<String, VarImpl> variables;
+	public int line, pos;
 
-    public MethodImpl(ClassImpl owner) {
-        this.owner = owner;
-        arguments = new ArrayList<>();
-        variables = new HashMap<>();
-    }
+	public MethodImpl(ClassImpl owner) {
+		this.owner = owner;
+		arguments = new ArrayList<>();
+		variables = new HashMap<>();
+	}
 
-    public MethodImpl(ClassImpl owner, String name) {
-        this(owner);
-        this.name = name;
-    }
+	public MethodImpl(ClassImpl owner, String name) {
+		this(owner);
+		this.name = name;
+	}
 }

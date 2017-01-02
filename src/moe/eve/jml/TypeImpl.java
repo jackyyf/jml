@@ -7,35 +7,35 @@ import java.util.*;
  */
 public class TypeImpl {
 
-    public String name;
+	public String name;
 
-    private TypeImpl(String name) {
-        this.name = name;
-    }
+	private TypeImpl(String name) {
+		this.name = name;
+	}
 
-    static {
-        pool = new HashMap<>();
-    }
+	static {
+		pool = new HashMap<>();
+	}
 
-    private static HashMap<String, TypeImpl> pool;
+	private static HashMap<String, TypeImpl> pool;
 
-    public static TypeImpl get(String name) {
-        if (!pool.containsKey(name))
-            pool.put(name, new TypeImpl(name));
-        return pool.get(name);
-    }
+	public static TypeImpl get(String name) {
+		if (!pool.containsKey(name))
+			pool.put(name, new TypeImpl(name));
+		return pool.get(name);
+	}
 
-    public boolean isBasicType() {
-        return name.equals("int") || name.equals("boolean") || name.equals("int[]");
-    }
+	public boolean isBasicType() {
+		return name.equals("int") || name.equals("boolean") || name.equals("int[]");
+	}
 
-    public boolean compatible(TypeImpl type) throws miniJavaException {
-        if (this == type) return true;
-        if (this.isBasicType() || type.isBasicType()) return false;
-        return ClassImpl.get(this.name).castable(ClassImpl.get(type.name));
-    }
+	public boolean compatible(TypeImpl type) throws miniJavaException {
+		if (this == type) return true;
+		if (this.isBasicType() || type.isBasicType()) return false;
+		return ClassImpl.get(this.name).castable(ClassImpl.get(type.name));
+	}
 
-    public boolean valid() {
-        return this.isBasicType() || ClassImpl.contains(this.name);
-    }
+	public boolean valid() {
+		return this.isBasicType() || ClassImpl.contains(this.name);
+	}
 }

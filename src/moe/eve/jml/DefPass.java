@@ -47,6 +47,10 @@ public class DefPass extends miniJavaBaseListener {
 		try {
 			if (ctx.parentName != null) {
 				currentClass.parent = ClassImpl.get(ctx.parentName.getText());
+				if (currentClass == currentClass.parent) {
+					miniJava.error(ctx.parentName.getLine(), ctx.parentName.getCharPositionInLine(), "Class can't extend itself!");
+					currentClass.parent = null;
+				}
 			}
 		} catch (miniJavaException e) {
 			miniJava.error(ctx.parentName.getLine(), ctx.parentName.getCharPositionInLine(), "Class " + ctx.parentName.getText() + " not defined.");

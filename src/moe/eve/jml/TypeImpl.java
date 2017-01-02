@@ -28,7 +28,7 @@ public class TypeImpl {
     }
 
     public boolean isBasicType() {
-        return name == "int" || name == "boolean" || name == "int[]";
+        return name.equals("int") || name.equals("boolean") || name.equals("int[]");
     }
 
     public boolean compatible(TypeImpl type) throws miniJavaException {

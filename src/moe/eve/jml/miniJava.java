@@ -32,6 +32,8 @@ public class miniJava {
         ParseTreeWalker walker = new ParseTreeWalker();
         DefPass def = new DefPass();
         walker.walk(def, tree);
+        CheckPass check = new CheckPass();
+        walker.walk(check, tree);
 
         if (!hasError)
             System.out.println(tree.toStringTree(parser));

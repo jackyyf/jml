@@ -9,8 +9,9 @@ import java.util.*;
 public class ClassImpl {
     public String name;
     public ClassImpl parent;
-    public HashMap<String, TypeImpl> field;
+    public HashMap<String, VarImpl> field;
     public HashMap<String, MethodImpl> method;
+    public int line, pos;
 
     private static HashMap<String, ClassImpl> pool;
 
@@ -29,21 +30,31 @@ public class ClassImpl {
         this.name = name;
     }
 
-    public static ClassImpl get(String name) {
-        if (!pool.containsKey(name))
-            pool.put(name, new ClassImpl(name));
+    public static ClassImpl get(String name) throws miniJavaException {
         return pool.get(name);
+    }
+
+    public static ClassImpl create(String name) throws miniJavaException {
+        if (!pool.containsKey(name)) {
+            pool.put(name, new ClassImpl(name));
+            return pool.get(name);
+        }
+        throw new miniJavaException("Class " + name + " already defined");
+    }
+
+    public static boolean contains(String name) {
+        return pool.containsKey(name);
     }
 
     public String toString() {
         return this.name;
     }
 
-    public void addField(TypeImpl t, String name) {
+    public void addField(String name, VarImpl t) {
         field.put(name, t);
     }
 
-    public void addMethod(MethodImpl m, String name) {
+    public void addMethod(String name, MethodImpl m) {
         method.put(name, m);
     }
 

@@ -1,4 +1,4 @@
-// Generated from miniJava.g4 by ANTLR 4.6
+// Generated from C:/Users/Eve/IdeaProjects/jml/src\miniJava.g4 by ANTLR 4.6
 package moe.eve.jml;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -37,16 +37,6 @@ public interface miniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitClassDef(miniJavaParser.ClassDefContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link miniJavaParser#field}.
-	 * @param ctx the parse tree
-	 */
-	void enterField(miniJavaParser.FieldContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link miniJavaParser#field}.
-	 * @param ctx the parse tree
-	 */
-	void exitField(miniJavaParser.FieldContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link miniJavaParser#variable}.
 	 * @param ctx the parse tree

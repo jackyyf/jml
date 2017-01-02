@@ -8,21 +8,12 @@ import java.util.*;
  */
 public class MethodImpl {
 
-    public class Argument {
-        public String name;
-        public TypeImpl type;
-
-        public Argument(String name, TypeImpl type) {
-            this.name = name;
-            this.type = type;
-        }
-    }
-
     public String name;
     public ClassImpl owner;
     public TypeImpl ret;
-    public List<Argument> arguments;
-    public HashMap<String, TypeImpl> variables;
+    public List<VarImpl> arguments;
+    public HashMap<String, VarImpl> variables;
+    public int line, pos;
 
     public MethodImpl(ClassImpl owner) {
         this.owner = owner;
@@ -35,15 +26,15 @@ public class MethodImpl {
         this.name = name;
     }
 
-    public void addVariable(TypeImpl t, String name) {
-        variables.put(name, t);
+    public void addVariable(VarImpl t) {
+        variables.put(t.name, t);
     }
 
-    public void addArgument(TypeImpl t, String name) {
-        arguments.add(new Argument(name, t));
+    public void addArgument(VarImpl t) {
+        arguments.add(t);
     }
 
-    public boolean callable(TypeImpl args[]) {
+    public boolean callable(TypeImpl args[]) throws miniJavaException {
         if (args.length != arguments.size()) {
             return false;
         }

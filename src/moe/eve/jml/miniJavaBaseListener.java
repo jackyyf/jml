@@ -1,4 +1,4 @@
-// Generated from miniJava.g4 by ANTLR 4.6
+// Generated from C:/Users/Eve/IdeaProjects/jml/src\miniJava.g4 by ANTLR 4.6
 package moe.eve.jml;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -47,18 +47,6 @@ public class miniJavaBaseListener implements miniJavaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitClassDef(miniJavaParser.ClassDefContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterField(miniJavaParser.FieldContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitField(miniJavaParser.FieldContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

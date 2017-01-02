@@ -13,16 +13,12 @@ mainClassDef
 
 classDef
 	:	'class' clsName=ID ('extends' parentName=ID)?
-		'{' ( field )*
+		'{' ( variable )*
 			( method )* '}'
 	;
 
-field
-	:	varType ID ';'
-	;
-
 variable
-	:	varType ID ( '=' expression )? ';'
+	:	varType name=ID ';'
 	;
 
 method
@@ -38,11 +34,12 @@ parameters
 	;
 
 parameterList
-	:	( parameter (',' parameter )* )?
+	:	parameter
+	|   parameter ',' parameterList
 	;
 
 parameter
-	:	varType ID
+	:	varType name=ID
 	;
 
 varType

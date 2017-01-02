@@ -15,6 +15,10 @@ public class TypeImpl {
         this.name = name;
     }
 
+    static {
+        pool = new HashMap<>();
+    }
+
     private static HashMap<String, TypeImpl> pool;
 
     public static TypeImpl get(String name) {
@@ -27,9 +31,13 @@ public class TypeImpl {
         return name == "int" || name == "boolean" || name == "int[]";
     }
 
-    public boolean compatible(TypeImpl type) {
+    public boolean compatible(TypeImpl type) throws miniJavaException {
         if (this == type) return true;
         if (this.isBasicType() || type.isBasicType()) return false;
         return ClassImpl.get(this.name).castable(ClassImpl.get(type.name));
+    }
+
+    public boolean valid() {
+        return this.isBasicType() || ClassImpl.contains(this.name);
     }
 }
